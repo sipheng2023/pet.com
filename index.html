@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Paws & Care - Pet Services</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Navbar with Language Switcher -->
+    <nav class="bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-4">
+                <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Logo" class="w-8 h-8">
+                <span class="font-bold text-xl">Paws & Care</span>
+            </div>
+            <div class="flex items-center space-x-6">
+                <a href="#services" class="text-gray-700 hover:text-blue-500 transition">Services</a>
+                <a href="#contact" class="text-gray-700 hover:text-blue-500 transition">Contact</a>
+                <div class="flex items-center space-x-2">
+                    <button id="lang-en" class="px-2 py-1 rounded hover:bg-blue-100 focus:outline-none font-medium">EN</button>
+                    <span>|</span>
+                    <button id="lang-th" class="px-2 py-1 rounded hover:bg-blue-100 focus:outline-none font-medium">TH</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <script>
+        const translations = {
+            en: {
+                services: "Services",
+                contact: "Contact",
+                welcome: "Welcome to Paws & Care",
+                subtitle: "Your trusted partner in grooming, boarding, and loving your pets.",
+                explore: "Explore Services",
+                ourServices: "Our Services",
+                grooming: "Grooming",
+                groomingDesc: "Professional grooming for dogs and cats to keep them clean and happy.",
+                boarding: "Boarding",
+                boardingDesc: "Safe and fun overnight care while you're away. Your pet is in good hands!",
+                training: "Training",
+                trainingDesc: "Positive-reinforcement training programs to help your pets behave better.",
+                testimonials: "What Our Clients Say",
+                testimonialText: "\"Paws & Care took amazing care of our pup while we were on vacation. The staff is loving and professional!\"",
+                testimonialAuthor: "– Sarah M.",
+                getInTouch: "Get in Touch",
+                name: "Your Name",
+                email: "Your Email",
+                help: "How can we help you?",
+                send: "Send Message"
+            },
+            th: {
+                services: "บริการ",
+                contact: "ติดต่อ",
+                welcome: "ยินดีต้อนรับสู่ Paws & Care",
+                subtitle: "พันธมิตรที่คุณไว้วางใจในการดูแล ตัดขน และรักสัตว์เลี้ยงของคุณ",
+                explore: "ดูบริการ",
+                ourServices: "บริการของเรา",
+                grooming: "ตัดขน",
+                groomingDesc: "บริการตัดขนมืออาชีพสำหรับสุนัขและแมว เพื่อความสะอาดและสุขภาพดี",
+                boarding: "รับฝาก",
+                boardingDesc: "ดูแลสัตว์เลี้ยงของคุณอย่างปลอดภัยขณะคุณไม่อยู่",
+                training: "ฝึกสอน",
+                trainingDesc: "โปรแกรมฝึกสอนด้วยการเสริมแรงเชิงบวกเพื่อพฤติกรรมที่ดีขึ้น",
+                testimonials: "เสียงจากลูกค้า",
+                testimonialText: "\"Paws & Care ดูแลน้องหมาของเราอย่างดีมากในช่วงที่เราไปเที่ยว พนักงานน่ารักและเป็นมืออาชีพ!\"",
+                testimonialAuthor: "– Sarah M.",
+                getInTouch: "ติดต่อเรา",
+                name: "ชื่อของคุณ",
+                email: "อีเมลของคุณ",
+                help: "เราสามารถช่วยอะไรคุณได้บ้าง?",
+                send: "ส่งข้อความ"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelector('nav a[href="#services"]').textContent = translations[lang].services;
+            document.querySelector('nav a[href="#contact"]').textContent = translations[lang].contact;
+            document.querySelector('h1').textContent = translations[lang].welcome;
+            document.querySelector('section.bg-blue-100 p').textContent = translations[lang].subtitle;
+            document.querySelector('section.bg-blue-100 a').textContent = translations[lang].explore;
+            document.querySelector('section#services h2').textContent = translations[lang].ourServices;
+            const serviceTitles = document.querySelectorAll('section#services h3');
+            const serviceDescs = document.querySelectorAll('section#services p');
+            serviceTitles[0].textContent = translations[lang].grooming;
+            serviceDescs[0].textContent = translations[lang].groomingDesc;
+            serviceTitles[1].textContent = translations[lang].boarding;
+            serviceDescs[1].textContent = translations[lang].boardingDesc;
+            serviceTitles[2].textContent = translations[lang].training;
+            serviceDescs[2].textContent = translations[lang].trainingDesc;
+            document.querySelector('section.bg-gray-50 h2').textContent = translations[lang].testimonials;
+            document.querySelector('section.bg-gray-50 p.text-lg').textContent = translations[lang].testimonialText;
+            document.querySelector('section.bg-gray-50 p.font-semibold').textContent = translations[lang].testimonialAuthor;
+            document.querySelector('section.bg-blue-50 h2').textContent = translations[lang].getInTouch;
+            document.querySelector('form input[type="text"]').placeholder = translations[lang].name;
+            document.querySelector('form input[type="email"]').placeholder = translations[lang].email;
+            document.querySelector('form textarea').placeholder = translations[lang].help;
+            document.querySelector('form button').textContent = translations[lang].send;
+        }
+
+        document.getElementById('lang-en').addEventListener('click', () => setLanguage('en'));
+        document.getElementById('lang-th').addEventListener('click', () => setLanguage('th'));
+    </script>
+
+  <!-- Hero Section -->
+  <section class="bg-blue-100 py-16 px-6 text-center">
+    <h1 class="text-4xl font-bold mb-4">Welcome to Paws & Care</h1>
+    <p class="text-lg mb-6">Your trusted partner in grooming, boarding, and loving your pets.</p>
+    <a href="#services" class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition">Explore Services</a>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="py-16 px-6">
+    <h2 class="text-3xl font-bold text-center mb-10">Our Services</h2>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Grooming" class="w-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-2">Grooming</h3>
+        <p>Professional grooming for dogs and cats to keep them clean and happy.</p>
+      </div>
+      <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Boarding" class="w-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-2">Boarding</h3>
+        <p>Safe and fun overnight care while you're away. Your pet is in good hands!</p>
+      </div>
+      <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <img src="https://cdn-icons-png.flaticon.com/512/616/616408.png" alt="Training" class="w-16 mx-auto mb-4">
+        <h3 class="text-xl font-semibold mb-2">Training</h3>
+        <p>Positive-reinforcement training programs to help your pets behave better.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="bg-gray-50 py-16 px-6">
+    <h2 class="text-3xl font-bold text-center mb-10">What Our Clients Say</h2>
+    <div class="max-w-3xl mx-auto text-center">
+      <p class="text-lg italic">"Paws & Care took amazing care of our pup while we were on vacation. The staff is loving and professional!"</p>
+      <p class="mt-4 font-semibold">– Sarah M.</p>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="py-16 px-6 bg-blue-50">
+    <h2 class="text-3xl font-bold text-center mb-8">Get in Touch</h2>
+    <form class="max-w-xl mx-auto grid gap-4">
+      <input type="text" placeholder="Your Name" class="border rounded-lg p-3" required>
+      <input type="email" placeholder="Your Email" class="border rounded-lg p-3" required>
+      <textarea placeholder="How can we help you?" rows="4" class="border rounded-lg p-3"></textarea>
+      <button type="submit" class="bg-blue-500 text-white px-6 py-3 rounded-lg hover:bg-blue-600 transition">Send Message</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-100 text-center py-6">
+    <p>&copy; 2025 Paws & Care. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
